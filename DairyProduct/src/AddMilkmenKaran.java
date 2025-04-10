@@ -14,7 +14,8 @@ public class AddMilkmenKaran {
     private double rating;
     private ArrayList<String> MilkTypes;
     private int experience;
-
+    private ArrayList<String> CustomerDetails;
+    private ArrayList<String> OrderDetails;
 
 
 //    Adding a new MilkMen
@@ -30,10 +31,13 @@ public class AddMilkmenKaran {
         this.rating = 0.0;
         this.MilkTypes = new ArrayList<>();
         this.experience = 0;
+        this.CustomerDetails = new ArrayList<>();
+        this.OrderDetails = new ArrayList<>();
     }
 
 
 //    Function to take input from the user of details
+    AddMilkmenKaran newMilkmen;
     public AddMilkmenKaran userInput(){
         Scanner input = new Scanner(System.in);
         System.out.println("-------Adding new Milkmen--------");
@@ -44,7 +48,7 @@ public class AddMilkmenKaran {
         System.out.print("Enter the Area: ");
         String Area = input.nextLine();
 
-        AddMilkmenKaran newMilkmen = new AddMilkmenKaran(Name,PhoneNumber,Area);
+        newMilkmen = new AddMilkmenKaran(Name,PhoneNumber,Area);
         addToDatabase();
         return newMilkmen;
 
@@ -76,7 +80,7 @@ public class AddMilkmenKaran {
     public void addToDatabase() {
         try {
             ConnKaran conn = new ConnKaran();
-            String query = "insert into Milkmen value('"+Name+"', '"+PhoneNumber+"','"+Area+"')";
+            String query = "insert into Milkmen value('"+newMilkmen.MilkmenId+"', '"+newMilkmen.Name+"', '"+newMilkmen.PhoneNumber+"','"+newMilkmen.Area+"')";
             conn.s.executeUpdate(query);
             System.out.println("Data added successfully");
         }
