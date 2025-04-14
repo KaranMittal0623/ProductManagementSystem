@@ -10,6 +10,7 @@ public class Main {
         int userChoice = input.nextInt();
         if(userChoice == 1){
             System.out.println("**********************Welcome to Login Page**********************");
+            new LoginKaran().login();
         }
         else if(userChoice == 2){
             System.out.println("**********************Welcome to Register Page**********************");
@@ -18,13 +19,12 @@ public class Main {
 //            Customer or Milkmen
             if(userChoice2 == 1){
                 System.out.println("\nWelcome to New Customer Registration Page");
+                AddCustomerKaran cc = new AddCustomerKaran().addCustomer();
             }
             else if(userChoice2 == 2){
 //              If Milkmen than call functions from the class AddMilkmenKaran
                 System.out.println("\nWelcome to New Milkmen Registration Page\n");
-                AddMilkmenKaran milkmen = new AddMilkmenKaran();
-                AddMilkmenKaran kk = milkmen.userInput();
-                kk.getName();
+                AddMilkmenKaran kk = new AddMilkmenKaran().userInput();
             }
         }
     }
