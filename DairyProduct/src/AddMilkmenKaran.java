@@ -7,6 +7,7 @@ public class AddMilkmenKaran {
     public static int Id=0;
     private int MilkmenId;
     private String Name;
+    private String userName;
     private String PhoneNumber;
     private String Area;
     private ArrayList<String> DeliveryArea;
@@ -15,15 +16,17 @@ public class AddMilkmenKaran {
     private int experience;
     private ArrayList<String> CustomerDetails;
     private ArrayList<String> OrderDetails;
+    private String Password;
 
 
 //    Adding a new MilkMen
     AddMilkmenKaran(){
 
     }
-    AddMilkmenKaran(String Name, String PhoneNumber, String Area){
+    AddMilkmenKaran(String Name, String userName, String PhoneNumber, String Area ,String password){
         this.MilkmenId = Id++;
         this.Name = Name;
+        this.userName = userName;
         this.PhoneNumber = PhoneNumber;
         this.Area = Area;
         this.DeliveryArea = new ArrayList<>();
@@ -32,6 +35,7 @@ public class AddMilkmenKaran {
         this.experience = 0;
         this.CustomerDetails = new ArrayList<>();
         this.OrderDetails = new ArrayList<>();
+        this.Password = password;
     }
 
 
@@ -42,12 +46,16 @@ public class AddMilkmenKaran {
         System.out.println("-------Adding new Milkmen--------");
         System.out.print("Enter the Milkmen name: ");
         String Name = input.nextLine();
+        System.out.print("Enter the Milkmen UserName: ");
+        String userName = input.nextLine();
         System.out.print("Enter the PhoneNumber: ");
         String PhoneNumber = input.nextLine();
         System.out.print("Enter the Area: ");
         String Area = input.nextLine();
+        System.out.print("Enter the Password: ");
+        String Password = input.nextLine();
 
-        newMilkmen = new AddMilkmenKaran(Name,PhoneNumber,Area);
+        newMilkmen = new AddMilkmenKaran(Name,userName,PhoneNumber,Area,Password);
         addToDatabase();
         return newMilkmen;
 
@@ -79,7 +87,7 @@ public class AddMilkmenKaran {
     public void addToDatabase() {
         try {
             ConnKaran conn = new ConnKaran();
-            String query = "insert into Milkmen value('"+newMilkmen.MilkmenId+"', '"+newMilkmen.Name+"', '"+newMilkmen.PhoneNumber+"','"+newMilkmen.Area+"')";
+            String query = "insert into Milkmen value('"+newMilkmen.userName+"', '"+newMilkmen.Name+"', '"+newMilkmen.PhoneNumber+"','"+newMilkmen.Area+"', '"+newMilkmen.Password+"')";
             conn.s.executeUpdate(query);
             System.out.println("Data added successfully");
         }
