@@ -10,8 +10,7 @@ public class Main {
         int userChoice = input.nextInt();
         if(userChoice == 1){
             System.out.println("**********************Welcome to Login Page**********************");
-            new LoginKaran().login();
-        }
+            new LoginKaran().login();       }
         else if(userChoice == 2){
             System.out.println("**********************Welcome to Register Page**********************");
             System.out.println("Press 1. to register as a New Customer" + "\nPress 2. to register as a New Milkmen");

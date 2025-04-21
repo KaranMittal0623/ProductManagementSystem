@@ -43,7 +43,7 @@ public class LoginKaran {
                }
            }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error while checking the user"+e);
         }
     }
 }

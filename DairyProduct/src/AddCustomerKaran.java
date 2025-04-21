@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddCustomerKaran {
@@ -12,6 +13,7 @@ public class AddCustomerKaran {
     private float balance;
     private int total_orders;
     private String milkMen;
+    ArrayList<String> orders;
 
     public AddCustomerKaran() {
     }
@@ -25,6 +27,8 @@ public class AddCustomerKaran {
         this.balance = 0;
         this.total_orders = 0;
         this.milkMen = "NULL";
+        this.orders = new ArrayList<>();
+
     }
 
 //    Function to inpout details of customer and add to database
