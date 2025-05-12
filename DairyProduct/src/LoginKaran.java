@@ -37,6 +37,7 @@ public class LoginKaran {
                if(milkmen.next()){
                    System.out.println("Welcome to Milkmen Page");
                    loggedInUsers.push(userName);
+                   MilkmanDashboardKaran MilkmenProfile = new MilkmanDashboardKaran(loggedInUsers.peek());
                }
                else{
                    System.out.println("Login Failed");
