@@ -3,10 +3,13 @@ import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class CustomerDashboardKaran {
-
+    boolean run;
     public CustomerDashboardKaran(String userName) {
-        displayMenu();
-        userChoice(userName);
+        run = true;
+        while(run) {
+            displayMenu();
+            userChoice(userName);
+        }
     }
 
     private void displayMenu() {
@@ -18,8 +21,9 @@ public class CustomerDashboardKaran {
         System.out.println("Press 5 to order products");
         System.out.println("Press 6 to get new Milkmen");
 //        System.out.println("Press 7 to change milkmen");
-        System.out.println("Press 8 to delete your account");
+        System.out.println("Press 8 to filter the Products");
         System.out.println("Press 9 to Logout");
+        System.out.println("Press 0 to Exit!!!!!!");
         System.out.print("Enter your choice: ");
     }
 
@@ -50,10 +54,15 @@ public class CustomerDashboardKaran {
                 changeMilkmen(userName);
                 break;
             case 8:
-                deleteAccount(userName);
+//                deleteAccount(userName);
+                  new ProductsKaran();
                 break;
             case 9:
                 logout();
+                break;
+            case 0:
+                run = false;
+
                 break;
             default:
                 System.out.println("Invalid choice! Please try again.");

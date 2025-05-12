@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 //        Proper Designing of the project console
+        boolean run = true;
         Scanner input = new Scanner(System.in);
 //        User choice for login or register
         System.out.println("\n**********************Welcome to MilkConnect**********************\n");
