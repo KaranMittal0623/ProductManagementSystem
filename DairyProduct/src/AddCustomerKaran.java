@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class AddCustomerKaran {
 
-//    All private variables
+
     private String name;
     private String userName;
     private String number;
@@ -31,7 +31,7 @@ public class AddCustomerKaran {
 
     }
 
-//    Function to inpout details of customer and add to database
+
     Scanner input = new Scanner(System.in);
     AddCustomerKaran newCustomer;
     public AddCustomerKaran addCustomer() {
@@ -53,7 +53,7 @@ public class AddCustomerKaran {
         return newCustomer;
     }
 
-//    Adding the data to database
+
     public void addToDatabase() {
         try {
             ConnKaran conn = new ConnKaran();

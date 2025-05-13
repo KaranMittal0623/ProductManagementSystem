@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class ProductsKaran {
     private String filter;
-    private List<Product> products; // Changed class name to follow conventions
+    private List<Product> products;
     private ConnKaran conn = new ConnKaran();
     private Scanner input = new Scanner(System.in);
 
-    // Changed class name to follow Java naming conventions (PascalCase)
+
     public class Product {
         int productId;
         String productName;
@@ -21,7 +21,7 @@ public class ProductsKaran {
         Product(int productId, String productName, double productPrice, int productRating) {
             this.productId = productId;
             this.productName = productName;
-            this.productPrice = productPrice; // Fixed order to match parameters
+            this.productPrice = productPrice;
             this.productRating = productRating;
             this.productSales = 0;
         }
@@ -34,7 +34,6 @@ public class ProductsKaran {
         System.out.println("Press 4 to filter by sale");
         int choice = input.nextInt();
 
-        // Added breaks to switch case
         switch (choice) {
             case 1:
                 filterProducts("price");
@@ -50,7 +49,7 @@ public class ProductsKaran {
                 break;
             default:
                 System.out.println("Invalid choice");
-                filterProducts("best"); // Default filter
+                filterProducts("best");
         }
     }
 
@@ -58,9 +57,8 @@ public class ProductsKaran {
         this.filter = filter;
         this.products = new ArrayList<>();
         loadProductFromDB();
-//        loadSalesData();
         List<Product> filtered = filterProducts();
-        displayProducts(filtered); // Added method to display results
+        displayProducts(filtered);
     }
 
     private void loadProductFromDB() {
@@ -81,25 +79,6 @@ public class ProductsKaran {
         }
     }
 
-//    private void loadSalesData() {
-//                    String query = "SELECT ProductId, SalesCount FROM ProductSales";
-//                    try {
-//                        ResultSet data = conn.s.executeQuery(query);
-//                        while (data.next()) {
-//                            int productId = data.getInt("ProductId");
-//                            int salesCount = data.getInt("SalesCount");
-//
-//                for (Product p : products) {
-//                    if (p.productId == productId) {
-//                        p.productSales = salesCount;
-//                        break;
-//                    }
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.err.println("Sales data load error: " + e.getMessage());
-//        }
-//    }
 
     public List<Product> filterProducts() {
         switch (filter.toLowerCase()) {
@@ -193,7 +172,7 @@ public class ProductsKaran {
         list.set(j, temp);
     }
 
-    // Added method to display filtered products
+
     private void displayProducts(List<Product> products) {
         System.out.println("\nFiltered Products (" + filter + "):");
         products.forEach(p -> System.out.printf(
@@ -202,7 +181,7 @@ public class ProductsKaran {
         ));
     }
 
-    // Main method for testing
+
     public static void main(String[] args) {
         new ProductsKaran();
     }

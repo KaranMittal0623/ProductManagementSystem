@@ -6,7 +6,6 @@ import java.util.Stack;
 public class LoginKaran {
     LoginKaran(){
     }
-//    Stack to tracklogged user
     public Stack<String> loggedInUsers= new Stack<>();
 
 

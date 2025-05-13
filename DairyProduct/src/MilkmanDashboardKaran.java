@@ -22,7 +22,7 @@ public class MilkmanDashboardKaran {
             System.out.print("Enter your choice: ");
 
             int choice = input.nextInt();
-            input.nextLine(); // Consume newline
+            input.nextLine();
 
             switch (choice) {
                 case 1:
@@ -39,7 +39,7 @@ public class MilkmanDashboardKaran {
                     break;
                 case 5:
                     System.out.println("Exiting...");
-//                    conn.close(); // Close connection before exiting
+//
                     return;
                 default:
                     System.out.println("Invalid choice! Please try again.");
@@ -77,7 +77,7 @@ public class MilkmanDashboardKaran {
         System.out.print("Enter your choice: ");
 
         int choice = input.nextInt();
-        input.nextLine(); // Consume newline
+        input.nextLine();
 
         String columnToUpdate;
         String newValue;
@@ -163,7 +163,7 @@ public class MilkmanDashboardKaran {
         int month = input.nextInt();
         System.out.print("Enter year: ");
         int year = input.nextInt();
-        input.nextLine(); // Consume newline
+        input.nextLine();
 
         String query = "SELECT SUM(Quantity) AS TotalQuantity, SUM(Amount) AS TotalAmount " +
                 "FROM Orders WHERE MilkmanUsername = '" + username + "' " +
@@ -186,7 +186,7 @@ public class MilkmanDashboardKaran {
     }
 
     public static void main(String[] args) {
-        // For testing - you would normally get the username after login
+
         new MilkmanDashboardKaran("milkman123");
     }
 }

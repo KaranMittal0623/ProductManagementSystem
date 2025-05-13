@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class AddMilkmenKaran {
 
-//    All variables declaration
+
     public static int Id=0;
     private int MilkmenId;
     private String Name;
@@ -19,7 +19,7 @@ public class AddMilkmenKaran {
     private String Password;
 
 
-//    Adding a new MilkMen
+
     AddMilkmenKaran(){
 
     }
@@ -39,7 +39,7 @@ public class AddMilkmenKaran {
     }
 
 
-//    Function to take input from the user of details
+
     AddMilkmenKaran newMilkmen;
     public AddMilkmenKaran userInput(){
         Scanner input = new Scanner(System.in);
@@ -62,7 +62,7 @@ public class AddMilkmenKaran {
     }
 
 
-//    Getters for all Variables
+
     public String getName(){
         System.out.print(this.Name);
         return this.Name;
@@ -74,7 +74,7 @@ public class AddMilkmenKaran {
         return this.Area;
     }
 
-//    Setters for some variable
+
     public void addDeliveryArea(String Area){
         if(!this.DeliveryArea.contains(Area)){
             DeliveryArea.add(Area);
@@ -83,7 +83,7 @@ public class AddMilkmenKaran {
 
 
 
-//    Add data to database
+
     public void addToDatabase() {
         try {
             ConnKaran conn = new ConnKaran();

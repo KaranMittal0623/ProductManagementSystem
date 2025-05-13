@@ -1,4 +1,3 @@
-import java.security.spec.ECField;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
@@ -91,7 +90,6 @@ public class CustomerDashboardKaran {
         } catch (Exception e) {
             System.out.println("Error: " + e);
         }
-//        new CustomerDashboardKaran(userName); // Return to menu
     }
 
     public void editProfile(String userName) {
@@ -111,7 +109,6 @@ public class CustomerDashboardKaran {
             System.out.print("Enter new Password (leave blank to keep current): ");
             String password = input.nextLine();
 
-            // Build the update query dynamically based on what fields were provided
             StringBuilder queryBuilder = new StringBuilder("UPDATE Customer SET ");
             boolean needsComma = false;
 
@@ -154,14 +151,12 @@ public class CustomerDashboardKaran {
         } catch (Exception e) {
             System.out.println("Error updating profile: " + e);
         }
-        new CustomerDashboardKaran(userName); // Return to menu
+        new CustomerDashboardKaran(userName);
     }
 
     public void checkMonthlyDetails(String userName) {
         ConnKaran conn = new ConnKaran();
-        // Implementation for monthly details
         System.out.println("\n========== Monthly Details ==========");
-        // Add your database query and logic here
         String query = "select * from Customer where UserName = '"+userName+"'";
         try{
             ResultSet user = conn.s.executeQuery(query);
@@ -178,14 +173,12 @@ public class CustomerDashboardKaran {
             System.out.println("Error"+e);
         }
         System.out.println("Monthly details functionality to be implemented");
-        new CustomerDashboardKaran(userName); // Return to menu
+        new CustomerDashboardKaran(userName);
     }
 
     public void seeAllOrders(String userName) {
-        // Implementation to view all orders
         ConnKaran conn = new ConnKaran();
         System.out.println("\n========== Your Orders ==========");
-        // Add your database query and logic here
         String query = "select * from Orders as o join Customer as c on o.UserName = c.UserName where o.UserName = '"+userName+"'";
         try {
             ResultSet order = conn.s.executeQuery(query);
@@ -199,11 +192,9 @@ public class CustomerDashboardKaran {
         catch(Exception e) {
             System.out.println("Error while fetching the order details"+e);
         }
-//        new CustomerDashboardKaran(userName); // Return to menu
     }
 
     public void orderProducts(String userName) {
-        // Implementation for ordering products
         ConnKaran conn = new ConnKaran();
         int[] orders = {1,2,3,4};
         String[] name = {"Cow Milk","Buffalo Milk","Butter","Curd"};
@@ -229,11 +220,10 @@ public class CustomerDashboardKaran {
                 System.out.println("Error while adding to database"+e);
             }
         }
-        new CustomerDashboardKaran(userName); // Return to menu
+        new CustomerDashboardKaran(userName);
     }
 
     public void getNewMilkmen(String userName) {
-        // Implementation to find new milkmen
         ConnKaran conn = new ConnKaran();
         Scanner input = new Scanner(System.in);
         System.out.println("\n========== Available Milkmen ==========");
@@ -263,11 +253,9 @@ public class CustomerDashboardKaran {
     }
 
     public void changeMilkmen(String userName) {
-        // Implementation to change milkmen
         System.out.println("\n========== Change Milkman ==========");
-        // Add your database query and logic here
         System.out.println("Change milkman functionality to be implemented");
-        new CustomerDashboardKaran(userName); // Return to menu
+        new CustomerDashboardKaran(userName);
     }
 
     public void deleteAccount(String userName) {
@@ -300,7 +288,6 @@ public class CustomerDashboardKaran {
 
     public void logout() {
         System.out.println("\nLogging out... Thank you for using our service!");
-        // You might want to redirect to the login page here
-        System.exit(0); // For now, just exit the application
+        System.exit(0);
     }
 }
